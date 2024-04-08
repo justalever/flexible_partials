@@ -1,0 +1,26 @@
+<article id="<%= dom_id project %>" class="py-6 prose prose-zinc dark:prose-invert">
+    <p class="mb-0 font-heading font-medium">
+      Title
+    </p>
+    <p class="my-0">
+      <%= project.title %>
+    </p>
+    <p class="mb-0 font-heading font-medium">
+      Description
+    </p>
+    <p class="my-0">
+      <%= project.description %>
+    </p>
+    <p class="mb-0 font-heading font-medium">
+      Active
+    </p>
+    <p class="my-0">
+      <%= project.active %>
+    </p>
+
+   <p>
+    <%= link_to "View Project", project, class: "underline" %>
+  </p>
+
+  <time class="text-zinc-600 dark:text-zinc-400 text-xs" datetime="<%= project.created_at.to_formatted_s(:long) %>">Created <%= time_ago_in_words(project.created_at) + " ago" %></time>
+</article>

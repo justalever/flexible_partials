@@ -1,0 +1,126 @@
+<div class="max-w-3xl mx-auto px-4 my-16">
+  <!--
+  # Basics of `render`
+  #
+  # Controller or Helper layer conventions
+  #
+  # render :edit
+  # render action: :edit
+  # render "edit"
+  # render action: "edit"
+
+  # View layer conventions
+  #
+  # render "books/edit"
+  # render template: "books/edit"
+  -->
+
+  <!--
+    basic view partial rendering
+
+    <%#= render "shared/andy" %>
+
+    <%#= render partial: "shared/andy" %>
+  -->
+
+  <!--
+    With local variables
+    <%#= business %> should work but you might use strict locals or local_assigns[:business]
+
+    <%#= render "shared/andy", business: "webcrunch"  %>
+  -->
+
+  <!--
+    With explict local variables
+    Expects <%#= business %> in controller
+
+  <%#= render partial: "shared/andy", locals: { business: "webcrunch" }  %>
+
+  -->
+
+  <!--
+    With strict local variables
+
+  <%#= render partial: "shared/andy", locals: { business: "webcrunch" }  %>
+
+  <%# shared/_andy.html.erb %>
+  <%# locals: (business: "webcrunch") %>
+
+  <div class="flex items-center space-x-4 py-3 mb-6">
+    <%= image_tag "andy.jpg", class: "rounded-full object-center object-cover size-10 flex-shrink-0" %>
+
+    <div class="flex-1">
+      <p class="font-semibold text-zinc-800">Andy Leverenz</p>
+      <p class="text-zinc-600 text-sm">Creator of <%= business %></p>
+    </div>
+  </div>
+  -->
+
+  <div class="flex items-center justify-between pb-6 border-b dark:border-zinc-700 border-zinc-200">
+    <h1 class="text-4xl font-medium font-heading text-zinc-900 dark:text-zinc-100 tracking-tight">Projects</h1>
+    <div class="flex items-center justify-end">
+      <%= link_to "New Project", new_project_path, class: "btn btn-primary" %>
+    </div>
+  </div>
+
+  <div id="projects" class="divide-y divide-zinc-200 dark:divide-zinc-700">
+
+    <!--##### PREVIEW ##### -->
+
+    <%= render @projects %>
+
+    <!--##### PREVIEW ##### -->
+
+    <!--
+    # render a "smart" collection
+    <%#= render @projects %>
+
+    # render a collection outside of the bounds of the ProjectsController. Passing the partial is required.
+
+    <%= render partial: "projects/project", collection: @projects %>
+
+    # render a collection and want to use a different local variable name inside the partial? you can specify it with the `:as` option. If you change :project to something else you'll need to update the partial local variables in place. i.e. go update _project.html.erb project variables to match what is passed to as:.
+
+    <%= render partial: "projects/project", collection: @projects, as: :project %>
+
+    # render a partial within a each loop
+    <%# @projects.each do |project| %>
+      <%#= render partial: "project", project: project %>
+    <%# end %>
+
+    # render a simplified partial within an each loop
+    <%# @projects.each do |project| %>
+      <%#= render "project", project: project %>
+    <%# end %>
+
+    # render a collection with spacer template
+
+    <%#= render partial: "projects/project", collection: @projects, spacer_template: "shared/spacer" %>
+
+    # render file (pretty rare)
+    # Strips contents of file and inserts into page.
+    <%#= render file: "lib/resources/_resume.html.erb" %>
+
+    # render action
+    # renders ProjectsController#edit typically set within controller and not the view
+
+    #render action: "edit"
+
+
+    # render layout
+    # Treats partial like a mini-layout. I find it useful to extract repeated UI or containers, cards, etc. leaving slots for dynamic data and markup. Be sure to add the `yield` block to the `_card` partial. You can use content_for and yield statements here too.
+
+     <%# @projects.each do |project| %>
+      <div class="space-y-3 mt-6">
+        <#%= link_to project do  %>
+        <#%= render layout: "projects/card" do %>
+          <h4 class="text-2xl font-semibold font-heading text-zinc-900 dark:text-zinc-100 tracking-tight"><%#= project.title %></h4>
+          <div class="prose prose-zinc my-2 dark:prose-invert max-w-full">
+            <p><%#= project.description %></p>
+          </div>
+        <%# end %>
+      <%# end %>
+    <%# end %>
+    -->
+  </div>
+</div>
