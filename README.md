@@ -1,5 +1,8 @@
 # All the ways to render partials in Ruby on Rails
 
+- [📕 Originally published on webcrunch.com](https://webcrunch.com/posts/rails-partials)
+- [📺 Watch the video tutorial]()
+
 Partials in Ruby on Rails are one of those things I often take for granted. Extracting pieces of views and sharing across a monolith type of app is such a game changer for efficiency and productivity.
 
 I sometimes use Rails view partials in unique ways, so as an exercise, I wanted to document as many ways as I could recall to render partials. This list will likely grow as time allows, so check back often!
